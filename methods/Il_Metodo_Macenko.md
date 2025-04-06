@@ -9,10 +9,10 @@ L’idea principale dietro il metodo Macenko è quella di trasformare un’immag
 
 Diverse sfide devono essere superate a causa della grande variabilità nel processo di colorazione:
 # 1. VARIABILITA' DELLA COLORAZIONE
-  ∘ Differenze di protocollo --> Diversi laboratori possono usare protocolli diversi, portando a differenza in termini di intensità di colorazione e tonalità
-  ∘ Lotti di reagenti --> La variabilità tra lotti di reagenti può influire sul colore delle macchie e sulla sua intensità 
-  ∘ Preparazione delle slide --> Le differenze nelle tecniche di preparazione delle slide possono introdurre incoerenza nella colorazione
+  - Differenze di protocollo --> Diversi laboratori possono usare protocolli diversi, portando a differenza in termini di intensità di colorazione e tonalità
+  - Lotti di reagenti --> La variabilità tra lotti di reagenti può influire sul colore delle macchie e sulla sua intensità 
+  - Preparazione delle slide --> Le differenze nelle tecniche di preparazione delle slide possono introdurre incoerenza nella colorazione
 # 2. IMPATTO NELL'ANALISI QUANTITATIVA
-  ∘ Misurazioni incoerenti --> La variabilità nella colorazione può portare a misurazioni incoerenti, influenzando l'affidabilità delle analisi quantitative
-  ∘ Analisi automatizzate --> Gli algoritmi di analisi automatizzata di immagini fanno affidamento su data input coerenti. Le variazioni nella colorazione possono dare come risultato degli output non accurati o non affidabili
-  ∘ Studi comparativi --> Confrontare campioni di tessuto da diverse sorgenti diventa difficile se la colorazione non è coerente, riducendo la validità degli studi comparativi
+  - Misurazioni incoerenti --> La variabilità nella colorazione può portare a misurazioni incoerenti, influenzando l'affidabilità delle analisi quantitative
+  - Analisi automatizzate --> Gli algoritmi di analisi automatizzata di immagini fanno affidamento su data input coerenti. Le variazioni nella colorazione possono dare come risultato degli output non accurati o non affidabili
+  - Studi comparativi --> Confrontare campioni di tessuto da diverse sorgenti diventa difficile se la colorazione non è coerente, riducendo la validità degli studi comparativi
