@@ -39,7 +39,7 @@ Il metodo Macenko affronta queste sfide fornendo un approccio sistematico per no
 Il metodo Macenko è una tecnica ampiamente usata per la normalizzazione di colori nelle slide istologiche, in particolare per le slide H&E. Esso implica diversi step per trasformare un'immagine in uno spazio normalizzato, riducendo variabilità e migliorando la coerenza per l'analisi quantitativa.
 
 *Spiegazione step-by-step:*
-*** 1. CONVERSIONE DELL'IMMAGINE IN UNO SPAZIO OD
+### 1. CONVERSIONE DELL'IMMAGINE IN UNO SPAZIO OD
   - Il primo step per convertire un'immagine RGB in uno spazio OD. Questa trasformazione è basata sulla legge di Beer-Lambert, la quale afferma che l'assorbimento della luce che passa attraverso un materiale è proporzionale alla sua concentrazione
   - La formula di conversione è $OD=-log(I/Io)$ , con *I* l'intensità dei pixel nell'immagine e *Io* l'intensità della luce di riferimento (normalmente 255 per un'immagine a 8 bit)
 
