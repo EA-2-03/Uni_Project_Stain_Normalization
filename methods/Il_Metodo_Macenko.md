@@ -43,8 +43,9 @@ Il metodo Macenko è una tecnica ampiamente usata per la normalizzazione di colo
   - Il primo step per convertire un'immagine RGB in uno spazio OD. Questa trasformazione è basata sulla legge di Beer-Lambert, la quale afferma che l'assorbimento della luce che passa attraverso un materiale è proporzionale alla sua concentrazione
   - La formula di conversione è $OD=-log(I/Io)$ , con *I* l'intensità dei pixel nell'immagine e *Io* l'intensità della luce di riferimento (normalmente 255 per un'immagine a 8 bit)
 ### 2. MATRICE PER LA STIMA DELLE MACCHIE
-  -Questo metodo usa la Decomposizione dei Valori Singoli(SVD) per trovare le componenti del colore principale nello spazio OD
-  $OD_{matrix}=U {\Sigma} V^{T}$
+  -Questo metodo usa la Decomposizione dei Valori Singoli(SVD) per trovare le componenti del colore principale nello spazio OD -->  $OD_{matrix}=U {\Sigma} V^{T}$
+  -Ed estrae i primi due vettori singolari da V per formare la matrice delle macchie S--> $S = [V_{1} \space V_{2} ]$
+ 
 
 
 
