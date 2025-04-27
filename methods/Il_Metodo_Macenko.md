@@ -39,13 +39,21 @@ Il metodo Macenko affronta queste sfide fornendo un approccio sistematico per no
 Il metodo Macenko è una tecnica ampiamente usata per la normalizzazione di colori nelle slide istologiche, in particolare per le slide H&E. Esso implica diversi step per trasformare un'immagine in uno spazio normalizzato, riducendo variabilità e migliorando la coerenza per l'analisi quantitativa.
 
 *Spiegazione step-by-step:*
-### 1. CONVERSIONE DELL'IMMAGINE IN UNO SPAZIO OD
+### 1°PASSO. CONVERSIONE DELL'IMMAGINE IN UNO SPAZIO OD
   - Il primo step per convertire un'immagine RGB in uno spazio OD. Questa trasformazione è basata sulla legge di Beer-Lambert, la quale afferma che l'assorbimento della luce che passa attraverso un materiale è proporzionale alla sua concentrazione
   - La formula di conversione è $OD=-log(I/Io)$ , con *I* l'intensità dei pixel nell'immagine e *Io* l'intensità della luce di riferimento (normalmente 255 per un'immagine a 8 bit)
-### 2. MATRICE PER LA STIMA DELLE MACCHIE
-  -Questo metodo usa la Decomposizione dei Valori Singoli(SVD) per trovare le componenti del colore principale nello spazio OD -->  $OD_{matrix}=U {\Sigma} V^{T}$
-  -Ed estrae i primi due vettori singolari da V per formare la matrice delle macchie S--> $S = [V_{1} \space V_{2} ]$
-### 3. MACCHIE SEPARATE
+### 2°PASSO. MATRICE PER LA STIMA DELLE MACCHIE
+  - Questo metodo usa la Decomposizione dei Valori Singoli(SVD) per trovare le componenti del colore principale nello spazio OD   $OD_{matrix}=U {\Sigma} V^{T}$
+  - Ed estrae i primi due vettori singolari da V per formare la matrice delle macchie S--> $S = [V_{1} \space V_{2} ]$
+### 3°PASSO. MACCHIE SEPARATE
+  - Usa i vettori per separare l'immagine nelle sue componenti. Questo comporta la proiezione dei valori OD nei vettori delle macchie
+  - Visto che i valori OD sono proiettati, separano l'immagine in diversi canali di colorazione
+### 4°PASSO. NORMALIZZAZIONE DELLE MACCHIE
+  - Si normalizzano le componenti delle macchie scalandole per farle combaciare con delle distribuzioni di riferimento. Questo step porta l'intensità delle macchie a uno standard coerente,riducendo la variabilità tra slide
+  - Questo comporta la scalatura delle componenti come, per esempio, le loro proprietà statistiche , per farle combaciare con una slide di riferimento
+  - Si aggiustano le componenti per farle combaciare con una distribuzione bersaglio, tipicamente derivata da un'immagine di riferimento
+$C_{\text{normalized}} = \frac{C - \mu_C}{\sigma_C} \times \sigma_T + \mu_T$ , con *μ_{c}* e *\sigma_{c}* rispettivamente la deviazione media e standard delle concentrazioni correnti, mentre *\mu_{t}* e *\sigma_{t}* la deviazione media e standard delle concentrazioni standard
+
 
  
 
