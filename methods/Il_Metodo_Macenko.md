@@ -52,7 +52,7 @@ Il metodo Macenko è una tecnica ampiamente usata per la normalizzazione di colo
   - Si normalizzano le componenti delle macchie scalandole per farle combaciare con delle distribuzioni di riferimento. Questo step porta l'intensità delle macchie a uno standard coerente,riducendo la variabilità tra slide
   - Questo comporta la scalatura delle componenti come, per esempio, le loro proprietà statistiche , per farle combaciare con una slide di riferimento
   - Si aggiustano le componenti per farle combaciare con una distribuzione bersaglio, tipicamente derivata da un'immagine di riferimento
-$C_{\text{normalized}} = \frac{C - \mu_C}{\sigma_C} \times \sigma_T + \mu_T$ , con *μ_{c}* e *\sigma_{c}* rispettivamente la deviazione media e standard delle concentrazioni correnti, mentre *\mu_{t}* e *\sigma_{t}* la deviazione media e standard delle concentrazioni standard
+$C_{\text{normalized}} = \frac{C - \mu_C}{\sigma_C} \times \sigma_T + \mu_T$ , con *μ_{c}* e *sigma_{c}* rispettivamente la deviazione media e standard delle concentrazioni correnti, mentre *mu_{t}* e *sigma_{t}* la deviazione media e standard delle concentrazioni standard
 
 
  
