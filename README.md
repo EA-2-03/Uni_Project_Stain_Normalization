@@ -6,7 +6,7 @@ Esistono diversi metodi per normalizzare le immagini, tra i più utilizzati trov
 - [Il Metodo Macenko]
     - [Descrizione del metodo](methods/Il_Metodo_Macenko.md)
     - [Implementazione con Python](impl/Macenko.py)
-      - [Immagine prima e dopo la normalizzazione](Norm_Macenko/Diff_Prima_Dopo_Macenko.png)
+      - [Immagine prima e dopo la normalizzazione](Immagini/Norm_Macenko/Diff_Prima_Dopo_Macenko.png)
 - [Il Metodo Vahadane]
     - [Descrizione del metodo](methods/Il_Metodo_Vahadane.md)
     - [Implementazione con Python](impl/Vahadane.py)
