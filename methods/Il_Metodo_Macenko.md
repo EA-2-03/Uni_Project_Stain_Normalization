@@ -65,15 +65,15 @@ Il processo di normalizzazione delle macchie usando il metodo Macenko aiuta a fa
 
 ## FAQ
 
-- *Quali sono i benefici di usare tecniche di normalizzazione come il metodo Macenko?*  
+- **Quali sono i benefici di usare tecniche di normalizzazione come il metodo Macenko?**  
 I benefici includono riproducibilità aumentata e comparabilità di risultati tra i vari laboratori, un impatto della variazione del colore ridotto nell'analisi delle immagini e nell'interpretazione, e per ultimo, ma non per importanza, un'accuratezza elevata nella diagnostica e nella ricerca di malattie basate su immagini istopatologiche
-- *Può la normalizzazione alterare le informazioni biologiche presenti nelle immagini?*  
+- **Può la normalizzazione alterare le informazioni biologiche presenti nelle immagini?**  
 Le tecniche di normalizzazione sono progettate per preservare le informazioni biologiche sottostanti mentre corregge l'intensità del colore per poi standardizzarlo. L'obiettivo è minimizzare gli artefatti tecnici senza compromettere le caratteristiche essenziali del tessuto analizzato
-- *Ci sono limitazioni o considerazioni mentre si implementa la normalizzazione?*  
+- **Ci sono limitazioni o considerazioni mentre si implementa la normalizzazione?**  
 Una considerazione potrebbe stare nello scegliere il metodo di normalizzazione appropriato in base all'applicazione specifica, capendo il potenziale impatto di certi modelli di colorazione o caratteristiche di essi, e assicurando la validità e l'ottimizzazione dei parametri per risultati affidabili e accurati 
-- *La normalizzazione è pertinente solo ad immagini istopatologiche o può essere applicata per altri tipi di imaging medico?*  
+- **La normalizzazione è pertinente solo ad immagini istopatologiche o può essere applicata per altri tipi di imaging medico?**  
 Mentre la normalizzazione delle macchie è comunemente usata nell'istopatologia, tecniche simili possono essre applicate ad altri tipi di imaging medico, come , per esempio, l'imaging immunoistochimico e fluorescente, dove la coerenza del colore è cruciale per avere analisi e interpretazioni accurate
-- *Quali misure possono essere adottate per validare l'efficacia delle tecniche di normalizzazione?*  
+- **Quali misure possono essere adottate per validare l'efficacia delle tecniche di normalizzazione?**  
 Gli studi di validità sono essenziali per valutare la performance e l'affidabilità dei metodi di normalizzazione. Questo include comparare le immagini normalizzate con dati di verità di base, valutando l'impatto in task analitiche specifiche, e conducendo confronti tra laboratori per assicurare coerenza e riproducibilità
 
 
