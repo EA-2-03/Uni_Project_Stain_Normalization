@@ -66,7 +66,7 @@ Il processo di normalizzazione delle macchie usando il metodo Macenko aiuta a fa
 ## FAQ
 
 - *Quali sono i benefici di usare tecniche di normalizzazione come il metodo Macenko?*
-I benefici includono riproducibilità aumentata e comparabilità di risultati tra i vari laboratori, un impatto della variazione del colore ridotto nell'analisi delle immagini e nell'interpretazione, e per ultimo, ma non per importanza, un'accuratezza elevata nella diagnostica e nella ricerca di malattie basate su immagini istopatologiche
+ I benefici includono riproducibilità aumentata e comparabilità di risultati tra i vari laboratori, un impatto della variazione del colore ridotto nell'analisi delle immagini e nell'interpretazione, e per ultimo, ma non per importanza, un'accuratezza elevata nella diagnostica e nella ricerca di malattie basate su immagini istopatologiche
 - *Può la normalizzazione alterare le informazioni biologiche presenti nelle immagini?*
 Le tecniche di normalizzazione sono progettate per preservare le informazioni biologiche sottostanti mentre corregge l'intensità del colore per poi standardizzarlo. L'obiettivo è minimizzare gli artefatti tecnici senza compromettere le caratteristiche essenziali del tessuto analizzato
 - *Ci sono limitazioni o considerazioni mentre si implementa la normalizzazione?*
