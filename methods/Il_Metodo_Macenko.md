@@ -44,7 +44,7 @@ Il metodo Macenko è una tecnica ampiamente usata per la normalizzazione di colo
   - La formula di conversione è $OD=-log(I/Io)$ , con *I* l'intensità dei pixel nell'immagine e *Io* l'intensità della luce di riferimento (normalmente 255 per un'immagine a 8 bit)
 ### 2°PASSO. MATRICE PER LA STIMA DELLE MACCHIE
   - Questo metodo usa la Decomposizione dei Valori Singoli(SVD) per trovare le componenti del colore principale nello spazio OD   $OD_{matrix}=U {\Sigma} V^{T}$
-  - Ed estrae i primi due vettori singolari da V per formare la matrice delle macchie S--> $S = [V_{1} \space V_{2} ]$
+  - Ed estrae i primi due vettori singolari da V per formare la matrice delle macchie S --> $S = [V_{1} \space V_{2} ]$
 ### 3°PASSO. MACCHIE SEPARATE
   - Usa i vettori per separare l'immagine nelle sue componenti. Questo comporta la proiezione dei valori OD nei vettori delle macchie
   - Visto che i valori OD sono proiettati, separano l'immagine in diversi canali di colorazione
