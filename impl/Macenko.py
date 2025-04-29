@@ -67,4 +67,4 @@ plt.axis('off')
 plt.tight_layout()  # Riduce spazi tra i grafici
 plt.show()  # Mostra il confronto finale
 
-#Viene mostrato il [confronto tra l'immagine originale e quella normalizzata](Immagini/Norm_Macenko/Diff_Prima_Dopo_Macenko.png)
+#Viene mostrato il confronto tra l'immagine originale e quella normalizzata
