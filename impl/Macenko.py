@@ -1,7 +1,7 @@
 #Questo codice carica e visualizza un'immagine, la converte in uno spazio OD, 
-#applica PCA per stimare due "macchie", normalizza i colori, 
-#ricostruisce l'immagine con i colori modificati 
-#ed infine mostra a schermo il confronto tra immagine originale ed immagine normalizzata
+#Applica PCA per stimare due "macchie", normalizza i colori, 
+#Ricostruisce l'immagine con i colori modificati, 
+#Infine mostra a schermo il confronto tra immagine originale ed immagine normalizzata
 
 import cv2  # Libreria per la gestione delle immagini (OpenCV)
 import numpy as np  # Libreria per il calcolo numerico (array, operazioni matematiche)
