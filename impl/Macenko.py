@@ -8,7 +8,7 @@ import numpy as np  # Libreria per il calcolo numerico (array, operazioni matema
 import matplotlib.pyplot as plt  # Libreria per la visualizzazione di immagini e grafici
 from sklearn.decomposition import PCA  # Algoritmo PCA (Principal Component Analysis) da scikit-learn
 
-image = cv2.imread("Percorso_Per_L'immagine")  # Carica l'immagine dal percorso specificato (in BGR)
+image = cv2.imread("Percorso_Immagine")  # Carica l'immagine dal percorso specificato (in BGR)
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Converte l'immagine da BGR (OpenCV) a RGB (per Matplotlib)
 
 plt.imshow(image_rgb)  # Visualizza l'immagine RGB
