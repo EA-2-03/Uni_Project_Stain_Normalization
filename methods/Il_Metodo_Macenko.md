@@ -1,5 +1,5 @@
 Link della fonte delle informazioni:
-[https://www.geeksforgeeks.org/macenko-method-for-normalizing-histology-slides-for-quantitative-analysis/]
+[https://www.geeksforgeeks.org/macenko-method-for-normalizing-histology-slides-for-quantitative-analysis/] {GIUGNO 2024}
 
 # COSA E’ IL METODO MACENKO?
 
