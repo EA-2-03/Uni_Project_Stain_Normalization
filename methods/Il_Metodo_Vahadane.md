@@ -1,4 +1,4 @@
-Link della fonte delle informazioni:[https://ieeexplore.ieee.org/abstract/document/7460968]  
+Link della fonte delle informazioni:[https://ieeexplore.ieee.org/abstract/document/7460968]  {AGOSTO 2016}
 
 ### SOMMARIO  
 
