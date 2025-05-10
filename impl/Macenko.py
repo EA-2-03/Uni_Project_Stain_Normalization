@@ -17,7 +17,7 @@ plt.axis('off')  # Nasconde gli assi
 plt.show()  # Mostra il grafico
 
 #Viene mostrata l'immagine originale in formato RGB:
-## ![Immagine originale](https://github.com/EA-2-03/Uni_Project_Stain_Normalization/blob/main/Immagini/Prima_Norm.png?raw=true)
+# ![Immagine originale](https://github.com/EA-2-03/Uni_Project_Stain_Normalization/blob/main/Immagini/Prima_Norm.png?raw=true)
 
 
 
