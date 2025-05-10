@@ -17,8 +17,6 @@ plt.axis('off')  # Nasconde gli assi
 plt.show()  # Mostra il grafico
 
 #Viene mostrata l'immagine originale in formato RGB
-#[Immagine originale](Immagini/Norm_Macenko/Prima_Norm.png)
-
 
 def rgb_to_od(image_rgb):
     image_rgb = image_rgb.astype(np.float32)  # Converte i valori dei pixel in float per il calcolo
