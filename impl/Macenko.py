@@ -16,10 +16,7 @@ plt.title("Original Image")  # Titolo del grafico
 plt.axis('off')  # Nasconde gli assi
 plt.show()  # Mostra il grafico
 
-#Viene mostrata l'immagine originale in formato RGB:
-# ![Immagine originale](https://github.com/EA-2-03/Uni_Project_Stain_Normalization/blob/main/Immagini/Prima_Norm.png?raw=true)
-
-
+#Viene mostrata l'immagine originale in formato RGB
 
 def rgb_to_od(image_rgb):
     image_rgb = image_rgb.astype(np.float32)  # Converte i valori dei pixel in float per il calcolo
