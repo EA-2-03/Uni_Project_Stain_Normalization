@@ -16,7 +16,7 @@ plt.title("Original Image")  # Titolo del grafico
 plt.axis('off')  # Nasconde gli assi
 plt.show()  # Mostra il grafico
 
-#Viene mostrata l'immagine originale in formato RGB
+#Viene mostrata l'immagine originale in formato RGB [Prima_Norm.png]
 
 def rgb_to_od(image_rgb):
     image_rgb = image_rgb.astype(np.float32)  # Converte i valori dei pixel in float per il calcolo
@@ -50,7 +50,7 @@ plt.title('Reconstructed Image')  # Titolo
 plt.axis('off')  # Nessun asse
 plt.show()  # Mostra
 
-#Viene mostrata l'immagine normalizzata
+#Viene mostrata l'immagine normalizzata [Reconstructed_Image_Macenko_2632.png]
 
 plt.figure(figsize=(10, 5))  # Crea una figura più larga per il confronto
 
@@ -67,4 +67,4 @@ plt.axis('off')
 plt.tight_layout()  # Riduce spazi tra i grafici
 plt.show()  # Mostra il confronto finale
 
-#Viene mostrato il confronto tra l'immagine originale e quella normalizzata
+#Viene mostrato il confronto tra l'immagine originale e quella normalizzata [Diff_Prima_Dopo_Macenko.png]
