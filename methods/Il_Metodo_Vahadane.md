@@ -1,4 +1,4 @@
-Link della fonte delle informazioni:[https://ieeexplore.ieee.org/abstract/document/7460968]  {AGOSTO 2016}
+Link della fonte delle informazioni:[https://ieeexplore.ieee.org/abstract/document/7460968]  {RICERCA DI AGOSTO 2016}
 
 ### SOMMARIO  
 
@@ -71,7 +71,39 @@ In primo luogo si converte un'immagine RGB in uno spazio di densità ottica(OD) 
 
 $\min_{W, H}\space\frac{1}{2} \|| V - WH \||_F^2$   e  
 
-$\space(\lambda \sum_{j=1}^{r})  \|| H(j, :) \||_1$, con $W, H \geq 0$, risultando in $\|| W(:, j) \||_2^2 = 1$, 
+$\space(\lambda \sum_{j=1}^{r})  \|| H(j, :) \||_1$, con $W, H \geq 0$ e $\|| W(:, j) \||_2^2 = 1$, dove $\lambda$ è la sparsità ed il parametro di regolarizzazione. Si noti che il vincolo addizionale su W è per sopprimere molte soluzioni equivalenti del tipo $(W/\alpha \space, \alpha H)$ , con $\alpha >0$.  
+L'ottimizzazione non convessa congiunta nel vincolo $\|| W(:, j) \||_2^2 = 1$ viene risolta alternando tra W e H, ottimizzando così un set di parametri mentre si mantiene l'altro fisso , partendo con un'inizializzazione di W da elementi casuali del dataset di training (V), la densità ottica dell'RGB di due pixel selezionati casualmente corrisponde a due colonne di W nell'immagine istologica, come segue:  
+ - Per W fisso, $\hat{H} = \min_{H} \space \frac{1}{2} \left\| V - \hat{W}H\right\|_F^2 + \lambda\left\|H\right\|_1$
+ - Per H fisso, $\hat{W} = \min_{W} \space \frac{1}{2} \left\|V - WH\right\|_F^2$ , con $W \geq 0$ e $\|| W(:, j) \||_2^2 = 1$.  
+
+Questa funzione di costo è equivalente con un obiettivo di apprendimento del dizionario ben stabilito, ma con vincolo non-negativi aggiuntivi negli atomi del dizionario W e nei coefficienti H. Questi due step alternativi vengono chiamati "sparse coding per H" e "dictionary learning per W" , e vengono riassunti come segue: 
+ - Lo sparse coding o stima di H con $\hat{W}$ fisso è un problema dei minimi quadrati lineari regolarizzati-*l1* . Una serie di metodi recenti per risolvere questo tipo di problemi è basata su una discesa coordinata con soglia morbida e su un algoritmo LARS-LASSO. Comunque, quando le colonne del dizionario sono altamente correlate, la discesa coordinata risulta molto lenta. Da qui, viene usato il LARS con un'efficiente implementazione basata su Cholesky, la quale fornisce una soluzione robusta e accurata senza il bisogno di un criterio arbitrario.
+ - Il dictionary learning o stima di W viene fatto usando la discesa coordinata a blocchi senza parametri con ripartenza a caldo, la quale non richiede la messa a punto del rateo di apprendimento continuando a garantire la convergenza a un ottimale globale per l'ottimizzazione convessa nell'equazione $\hat{W} = \min_{W} \space \frac{1}{2} \left\|V - WH\right\|_F^2$. Vengono utilizzati dei Software disponibili pubblicamente chiamati SPAMS (SPArse Modelling Software) per lo sparse coding ed il dictionary learning. Bisogna far notare, però, che anche se gli SPAMS sono ottimizzati per risolvere la funzione di costo migliorata , il consumo computazionale per un risolvitore di questo genere sarebbe troppo dispendioso essere applicato a immagini WSI di grandi dimensioni.  
+
+### *B-->NORMALIZZAZIONE SPCN*  
+
+Per normalizzare l'aspetto del colore dell'immagine sorgente *s* in quello dell'immagine bersaglio *t*, in primo luogo , bisogna stimare gli aspetti del colore e le mappe di densità fattorizzando $V_{s}$ in $W_{s}H_{s}$, e $V_{t}$ in $W_{t}H_{t}$ usando la fattorizzazione SNMF proposta. Successivamente, una versione scalata della mappa di densità della sorgente $W_{s}$ viene combinata con l'aspetto del colore del bersaglio $W_{t}$ invece di quello della sorgente $W_{s}$ per generare l'immagine sorgente normalizzata. Questo preserva la struttura in termini di densità H, e cambia solamente l'aspetto in termini di W, e può essere descritta come segue:  
+ - $H_s^{norm}(j,:) = \frac{H_s(j,:)}{H_s^{RM}(j,:)} H_t^{RM}(j,:)$, con $j=1,..,r$  
+ - $V_s^{norm} = W_t H_s^{norm}$
+ - $I_s^{norm} = I_0 \exp(-V_s^{norm})$  
+Qui si ha $H_i^{RM} = RM(H_{i})$ , con $i=(s,t)$ e $RM$ il calcolo robusto pseudo massimo di ogni vettore riga al 99%.  
+Rispetto al mapping non-lineare tra le statistiche di $H_{s}$ e $H_{t}$ nel metodo di Khan, qui viene moltiplicato solo $H_{s}$ per uno scalare e quindi vengono mantenute intatte le mappe di densità dell'immagine sorgente. Questa tecnica è simile al metodo Macenko dove le mappe di coefficienti misti dei principali componenti vengono preservate per l'immagine sorgente. In questo modo, una volta che la separazione è stata fatta in maniera accurata, la tecnica di normalizzazione di Vahadane cambia solo l'aspetto del colore (la base) mentre preserva le struttura della sorgente. Questa proprietà che preserva la struttura viene validata nella sezione #4B per la sua utilità. Ai tempi della ricerca di Vahadane, è stata la prima volta che la conservazione della struttura viene considerata simultaneamente sia nella separazione delle macchie che nella normalizzazione. Tentativi precedenti nella separazione delle macchie (per esempio Macenko), non partono con proprietà strutturali delle macchie come la scarsità e la non-negatività e quindi non sempre garantiscono invarianza strutturale dopo la normalizzazione.  
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
 
 
 
