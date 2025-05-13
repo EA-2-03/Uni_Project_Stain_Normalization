@@ -50,7 +50,44 @@ Oltre alla NMF con il metodo di Rabinovich, altri metodi popolari sono basati su
 - BCD (Gavrilovic e co.) [https://ieeexplore.ieee.org/document/6410037]
 
 Tramite l'uso dell'errore quadrato medio della radice relativa (rMSE) tra la base stimata del colore e la verità di base del metodo di Gavrilovic, la BCD supera la NMF di circa il 20/40 % e la ICA dalle 3 alle 5 volte. Anche se la BCD ha una buona performance, non è ancora chiaro come aggiustare alcuni dei suoi superparametri. Per esempio gli autori propongono di usare una decomposizione lineare a pezzi, invece di una lineare, nel caso di una separazione a scarso gruppo di macchie, ma senza fornire una soglia quantitativa per i criteri dei pescatori per determinare i gruppi poveri. La SVD ha una soluzione a forma chiusa che può essere calcolata in modo efficiente, anche se le sue performance si deteriorano quando le immagini contengono proporzioni irregolari di ogni macchia.  
-L'aggiunta di un vincolo di scarsità alla NMF, come verrà spiegato nella sezione 3A, riduce lo spazio di soluzione e aggiunge un altro principio biologicamente concordante al modello. Una formulazione scarsa per la separazione delle macchie è stata recentemente riportata nella ricerca di Chen [https://www.researchgate.net/publication/282591195_Deep_Learning_Based_Automatic_Immune_Cell_Detection_for_Immunohistochemistry_Images] . Tuttavia, è solo un'estensione del metodo di deconvoluzione del colore e in ogni caso richiede la matrice W per essere determinata in modo sperimentale, tutto ciò limita la sua applicabilità in un dataset di immagini istologiche di grandi dimensioni con una considerabile variazione di colore. 
+L'aggiunta di un vincolo di scarsità alla NMF, come verrà spiegato nella sezione 3A, riduce lo spazio di soluzione e aggiunge un altro principio biologicamente concordante al modello. Una formulazione scarsa per la separazione delle macchie è stata recentemente riportata nella ricerca di Chen [https://www.researchgate.net/publication/282591195_Deep_Learning_Based_Automatic_Immune_Cell_Detection_for_Immunohistochemistry_Images] . Tuttavia, è solo un'estensione del metodo di deconvoluzione del colore e in ogni caso richiede la matrice W per essere determinata in modo sperimentale, tutto ciò limita la sua applicabilità in un dataset di immagini istologiche di grandi dimensioni con una considerabile variazione di colore.  
+In questa ricerca, viene confrontata la separazione basata sulla fattorizzazione SNMF con il metodo basato sulla fattorizzazione NMF e con il metodo basato sulla SVD. La ICA non è stata messa a confronto in quanto le sue performance sono molto lontane da quelle riscontrate con la NMF e la BCD. Inoltre anche la BCD non è stata messa a confronto perché nessuno dei dettagli richiesti per la sua implementazione e nessun codice sorgente sono stati resi disponibili nella ricerca di Gavrilovic. Comunque, la BCD è stata confrontata con la SNMF in base ai suoi risultati relativi alla NMF.  
+
+### *C-->METODI DI NORMALIZZAZIONE BASATI SULLA SEPARAZIONE DELLE MACCHIE*  
+
+Le tecniche di normalizzazione supervisionate come il metodo di Khan e il metodo di Magee sono limitate nel modellare la variazione del colore del solo dataset di training. Potrebbe essere necessaria una riqualifica per diversi tipi di tessuti, schemi di colorazione, e addirittura per lo stesso tipo di tessuto ma di diversi laboratori. In aggiunta, un'applicazione utile per la normalizzazione del colore è quella di migliorare l'aspetto del colore o il contrasto delle slide istologiche sbiadite o di bassa qualità. Risulta molto difficile per un dataset di training coprire le slide istologiche su tutti i possibili scenari.  
+ - Metodo di Khan: [https://ieeexplore.ieee.org/document/6727397]
+ - Metodo di Magee: [https://www.researchgate.net/publication/228855426_Colour_Normalisation_in_Digital_Histopathology_Images]  
+
+Tra i metodi non supervisionati, il metodo Macenko usa la SVD per estrarre i vettori delle macchie seguiti dalla correzione della direzione rendendolo robusto per le variazioni tra immagini. Comunque, nel processo della normalizzazione, gli autori hanno usato un modello d'aspetto del colore integrato per modificare la distribuzione del colore di un'immagine data, il quale non è flessibile come avere l'abilità di selezionare un'immagine bersaglio con un aspetto del colore preferito da un esperto. Inoltre, le macchie modellanti come componente principale non garantisce la non-negatività o la scarsità. Per questo, le mappe dei componenti risultanti possono essere difficili da interpretare biologicamente.  
+
+## #3.METODI  
+
+Il metodo di separazione delle macchie proposto basato sulla normalizzazione SNMF è integrale all'algoritmo della normalizzazione SPCN. Al suo centro c'è l'aggiunta di un vincolo di scarsità nella NMF che cattura il principio biologico della discretezza delle strutture biologiche. Cioè, ogni struttura biologica, come un nucleo, ha un'estensione spaziale finita e connessa, il quale è caratterizzato da uno spettro assorbente o da macchie effettive. In questa sezione, verranno forniti dettagli sull'implementazione della fattorizzazione SNMF, della normalizzazione SPCN e di uno schema basato sulle patch per accelerare la stima della base del colore. I codici sorgenti della SNMF, della SPCN e dello schema per accelerare la stima sono disponibili per uso accademico sul sito [https://github.com/abhishekvahadane/CodeRelease_ColorNormalization.git] (codici per MatLab, non Python!!).  
+
+### *A-->SEPARAZIONE BASATA SULLA FATTORIZZAZIONE SNMF*  
+
+In primo luogo si converte un'immagine RGB in uno spazio di densità ottica(OD) usando la formula $V = \log(\frac{I_{o}}{I})$ basata sulla legge di Beer-Lambert. Successivamente, si aggiunge il vincolo di scarsità all'equazione $\min_{W, H}\space\frac{1}{2} \|| V - WH \||_F^2$ , proponendo così una funzione di costo NMF migliorata per la separazione delle macchie, includendo una regolarizzazione della scarsità *l1* sui coefficienti di miscelazione delle macchie *Hj*, con le macchie indicizzate per $j=1,2,...,r$, il quale porta alla somma tra  
+
+$\min_{W, H}\space\frac{1}{2} \|| V - WH \||_F^2$   e  
+
+$\space(\lambda \sum_{j=1}^{r})  \|| H(j, :) \||_1$, con $W, H \geq 0$, risultando in $\|| W(:, j) \||_2^2 = 1$, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
