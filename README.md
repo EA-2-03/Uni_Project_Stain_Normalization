@@ -10,6 +10,18 @@ Esistono diversi metodi per normalizzare le immagini, tra i più utilizzati trov
 - [Il Metodo Vahadane]
     - [Descrizione del metodo](methods/Il_Metodo_Vahadane.md)
     - [Implementazione con Python](impl/Vahadane.py)
+- [Il Metodo di Ruifrok e Johnston]
+    - [Descrizione del metodo](methods/Il_Metodo_di_Ruifrok_Johnston.md)
+    - [Implementazione con Python](impl/Ruifrok_Johnston.py)  
+- [Il metodo Reinhard]
+    - [Descrizione del metodo](methods/Il_Metodo_Reinhard.md)
+    - [Implementazione del codice](impl/Reinhard.py)  
+- [I metodi basati sulle CNN o sulle GAN]  
+    - [Descrizione dei metodi](methods/I_metodi_sulle_reti_neurali.md)
+    - [Implementazione con Python](impl/Reti_Neurali.py)
+
+
+
 
 Lavori in corso...
 
