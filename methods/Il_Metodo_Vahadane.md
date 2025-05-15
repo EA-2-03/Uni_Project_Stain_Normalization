@@ -89,6 +89,32 @@ Per normalizzare l'aspetto del colore dell'immagine sorgente *s* in quello dell'
 Qui si ha $H_i^{RM} = RM(H_{i})$ , con $i=(s,t)$ e $RM$ il calcolo robusto pseudo massimo di ogni vettore riga al 99%.  
 Rispetto al mapping non-lineare tra le statistiche di $H_{s}$ e $H_{t}$ nel metodo di Khan, qui viene moltiplicato solo $H_{s}$ per uno scalare e quindi vengono mantenute intatte le mappe di densità dell'immagine sorgente. Questa tecnica è simile al metodo Macenko dove le mappe di coefficienti misti dei principali componenti vengono preservate per l'immagine sorgente. In questo modo, una volta che la separazione è stata fatta in maniera accurata, la tecnica di normalizzazione di Vahadane cambia solo l'aspetto del colore (la base) mentre preserva le struttura della sorgente. Questa proprietà che preserva la struttura viene validata nella sezione #4B per la sua utilità. Ai tempi della ricerca di Vahadane, è stata la prima volta che la conservazione della struttura viene considerata simultaneamente sia nella separazione delle macchie che nella normalizzazione. Tentativi precedenti nella separazione delle macchie (per esempio Macenko), non partono con proprietà strutturali delle macchie come la scarsità e la non-negatività e quindi non sempre garantiscono invarianza strutturale dopo la normalizzazione.  
 
+### *C-->SCHEMA PER ACCELERARE LA STIMA NELLE IMMAGINI WSI BASATO SULLE PATCH  
+
+Come spiegato nelle sezioni 3A e 3B, la maggior parte del tempo di calcolo di una normalizzazione SPCN viene impiegato nell'ottimizzazione iterativa della fattorizzazione SNMF, la quale rallenta le sue performance nelle WSI, specialmente quando la RAM di un computer è limitata rispetto alle dimensioni delle WSI. Quindi, lo schema proposto aiuta in questo caso. Lo schema stima la matrice d'aspetto globale W di una WSI basato su un campionamento di smart patch e sulla separazione delle macchie a chiazze. Le patch hanno la stessa risoluzione dell'immagine WSI originale per preservare le strutture locali, in quanto potrebbero essere perse usando il sottocampionamento, una banale alternativa.  
+Per iniziare, si campionano le patch centrate nei punti angolari della griglia e si scartano quelli che giaciono nello spazio bianco confrontando la loro luminosità con una soglia (intorno allo 0.9). La luminosità è il valore L nello spazio di colore $L * a * b$. Poi, si stimano le matrici della base del colore $W_{i}$ per ognuna delle patch campionate indicizzandole per i usando la SNMF. Le macchie di colore delle colonne nella $W_{i}$ sono ordinate in base all'intensità del canale blu, facendo sì che la prima colonna corrisponda alla hematoxylina e la secondo all'eosina. Per ultimo, si prende la mediana di queste matrici elemento per elemento per rendere la stima del colore più robusta agli artefatti come la piegatura, la sfocatura o i buchi. Da qui si normalizza la matrice mediana per avere le colonne vettoriali unitarie, e denotare la matrice finale W così ottenuta. La scelta della griglia e della grandezza delle patch sarà spiegata nelle sezioni 4 e 5.  
+La separazione delle macchie per le WSI si ottiene attaverso la deconvoluzione del colore:  $H = W^{+}V$, con $H\geq 0$ e con $W^{+} = (W^{T}W)^{-1}W^{T}$ la matrice pseudo-inversa di W. Questa operazione si può anche fare separatamente per sotto-immagini delle WSI, basta usare una matrice per l'aspetto del colore singolo W, ottenuta per l'intera immagine e ,ottenendo H tramite la pseudo-inversa, si può tenere per ogni sotto-immagine e quindi si può paralizzare.  
+Dopo la separazione delle macchie delle WSI sorgente e di quelle bersaglio, rispettivamente $V_{s} = W_{s} H_{s}$ e $V_{t} = W_{t} H_{t}$, bisogna cambiare l'aaspetto del colore delle WSI sorgente in quello delle WSI bersaglio ma bisogna anche preservare la concentrazione delle macchie originale per ottenere le WSI sorgente normalizzate.  
+
+## 4.ESPERIMENTI E RISULTATI  
+
+La separazione basata su SNMF e la normalizzazione SPCN sono state testate ampiamente, sia da un lato qualitativo che da un lato quantitativo. Tutti i dataset usati per i test durante la ricerca sono dati di riferimento disponibili pubblicamente, e consentono un facile e giusto confronto con altri metodi concorrenti.  
+
+### *A-->PERFORMANCE DELLA SEPARAZIONE DELLE MACCHIE DELLA SNMF  
+
+La SNMF è stata quantitativamente validata contro le separazioni basate sulla NMF e sulla SVD in base ai test sui campioni di quattro diversi tipi di tessuti: stomaco, prostata, colon e vescica, tutti disponibili nel portale dati 'The Cancer Genome Atlas(TCGA)' . La deconvoluzione BCD non fornisce codice sorgente di accesso pubblico e per questo si possono solo riportare i loro risultati e fare un confronto con la NMF.  
+ - Generazione della verità di base: Mentre molte idee sono state proposte per generare la verità di base per le mappe di densità e i loro modelli di aspetto del colore, come le slide di scansione con macchie pure (metodo di Rabinovich), il metodo di Ruifrok
+
+
+
+
+
+
+
+
+
+
+
 
 
 
