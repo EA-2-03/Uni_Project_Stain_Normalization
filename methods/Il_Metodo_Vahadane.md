@@ -131,7 +131,39 @@ Iniziando con la convalida quantitativa:
 Sono state prese casualmente 300 immagini campione come immagini sorgente ottenute usando uno scanner Aperio, e 300 immagini bersaglio dallo scanner Hamamatsu.  Questo confronto è stato fatto nella ricerca di Vahadane, confrontando le diverse tecniche di normalizzazione, tutto ciò per cambiare l'aspetto del colore sorgente nell'aspetto bersaglio, e inoltre la sorgente normalizzata è stata confrontata con l'immagine bersaglio corrispondente della stessa sezione di tessuto (verità di base).  
 Visto che esiste un piccolo disallineamento tra l'abbinamento delle immagini dell'Aperio e dell'Hamamatsu a causa di una calibrazione imperfetta e delle diverse risoluzioni spaziali degli scanner, le immagini dell'Hamamatsu sono state registrate rigidamente con le corrispondenti dell'Aperio per creare la verità di base. Come metriche di similarità tra la sorgente normalizzata e la verità di base sono state usate la correlazione di Pearson multicanale (media di tre misure di canale RGB) e l'indice di similarità strutturale del quaternione (QSSIM). La SPCN dimostra una performance superiore rispetto ai metodi concorrenti.  
 
- 2) *Convalida qualitativa:* 
+ 2) *Convalida qualitativa:* Il metodo di normalizzazione proposto può essere anche usato per migliorare il contrasto delle immagini di bassa qualità, come le macchie sbiadite.  
+
+![image](https://github.com/user-attachments/assets/569470f0-d2f9-4bb0-94f7-18549402cda0)  
+Quest'immagine mostra un confronto visuale delle diverse tecniche di normalizzazione.  
+A) sorgente ; B) bersaglio ; C) Reinhard ; D) Macenko ; E) Khan ; F) SPCN proposta  
+
+Nel punto C) si nota che il metodo di Reinhard non è in grado di preservare le strutture locali e riempie il lume con il colore quando dovrebbe rimanere bianco dopo la normalizzazione. Nel punto D) si nota che la normalizzazione basata sulla SVD di Macenko è ampiamente monocromo, rumorosa e non è in grado di preservare la struttura del lume, probabilmente a causa delle componenti delle macchie irrealisticamente negative in queste regioni. Nel punto E) si nota che il metodo di Khan fa un miglior lavoro per quanto riguarda il mantenimento delle strutture e mostra una seconda macchia differenziata, ma in certe aree (quelle evidenziate in cerchi verdi) non è in grado di riprodurre fedelmente le macchie meno abbondanti (hematoxylina) . Confrontata con tutti gli altri metodi, la SPCN riproduce la struttura locale, ed è in grado di mostrare differenziatamente le due macchie del punto F), anche nelle aree dove il metodo di Khan ha difficoltà (cerchi verdi) .  
+
+ 3) *Interpretazione dell'istogramma della conservazione delle strutture della SPCN:*  Tramite l'istogramma 3D di un'immagine RGB si può visualizzare il processo di normalizzazione:  
+
+![image](https://github.com/user-attachments/assets/3ea25e14-c004-4bc8-85e7-7f1d18ebc901)  
+A) sorgente ; B) bersaglio ; C) specifica dell'istogramma ; D) SPCN proposta ; E) verità di base  
+
+Rispetto alla specifica dell'istogramma, la SPCN non cerca una corrispondenza identica all'istogramma del bersaglio. Per esempio, la SPCN conserva la stessa quantità di lume bianco dell'immagine sorgente. Questo viene riflesso nella dimensione delle palle bianche nei due istogrammi corrispondenti. In contrario, la specifica dell'istogramma prova a raggiungere un numero equo di lume bianco come nell'immagine bersaglio e di conseguenza crea strutture artificiali.  
+
+### *C-->CONVALIDA DELLO SCHEMA DI ACCELERAZIONE PER LE WSI*  
+
+Nella ricerca di Vahadane sono state usate 27 immagini WSI di tessuti del colon con H&E di dimensioni 20000x20000 ricoprendo una area fisica di $5 mm\space x\space 5 mm = 25 mm^2$ disponibili nel [portale dei dati TCGA](http://tcga-data.nic.nih.gov/tcga/) . La densità delle macchie della verità di base è stata ottenuta attraverso un' esperta separazione delle macchie come descritto nella sezione 4-A1. Per fare la separazione è stato usato lo schema proposto basato sulle patch e lo si è messo a confronto con una separazione delle macchie diretta sulle WSI.  
+Similarmente a quello che è successo nelle immagini di piccola taglia, la SNMF ha avuto una migliore performance rispetto alla NMF nella separazione delle macchie, particolarmente nella stima dell'eosina. L'errore rRMSE per la stima della matrice W usando lo schema lento e lo schema veloce per la SNMF ha avuto un risultato rispettivamente di 0.066 e 0.068, mentre per la NMF rispettivamente 0.115 e 0.097.  
+Lo schema d'accelerazione proposto ha raggiunto approssimativamente un'accelerazione di 20 volte maggiore di una decomposizione diretta sulle WSI (usando una griglia 6x6, 20 patch campionate nella decomposizione e ognuna di dimensione 1000x1000) per entrambi i metodi NMF e SNMF, mantenendo una performance consistente o migliorata. Ci sono voluti circa 82 secondi con un processore a 4-core per lo schema basato su patch, rispetto ai circa 25 minuti per la separazione diretta per ognuna delle 27 immagini.  
+Ecco alcuni dei fattori cruciali che hanno contribuito all'accelerazione dei tempi:  
+ - Gli spazi bianchi erano esclusi in base allo schema proposto durante lo step della SNMF o della NMF
+ - Diverse patch possono essere processate in parallelo in diversi core della CPU per una velocizzazione teorica di $(\text{dimensioneWSI} \times \text{numCoreCPU})/(\text{numpatch} \times \text{dimensionepatch})$
+ - Gli input 
+
+
+
+
+
+
+
+
+
 
 
 
