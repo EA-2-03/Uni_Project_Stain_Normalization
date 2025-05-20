@@ -154,7 +154,7 @@ Lo schema d'accelerazione proposto ha raggiunto approssimativamente un'acceleraz
 Ecco alcuni dei fattori cruciali che hanno contribuito all'accelerazione dei tempi:  
  - Gli spazi bianchi erano esclusi in base allo schema proposto durante lo step della SNMF o della NMF
  - Diverse patch possono essere processate in parallelo in diversi core della CPU per una velocizzazione teorica di $(\text{dimensioneWSI} \times \text{numCoreCPU})/(\text{numpatch} \times \text{dimensionepatch})$
- - Gli input 
+ - Gli input e le variabili temporanee corrispondenti alle piccole patch possono essere poste nella RAM, riducendo così il consumo di tempo delle chiamate lettura-scrittura nell'hard disk. 
 
 
 
