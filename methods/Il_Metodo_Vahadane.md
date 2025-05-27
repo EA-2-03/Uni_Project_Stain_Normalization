@@ -156,6 +156,9 @@ Ecco alcuni dei fattori cruciali che hanno contribuito all'accelerazione dei tem
  - Diverse patch possono essere processate in parallelo in diversi core della CPU per una velocizzazione teorica di $(\text{dimensioneWSI} \times \text{numCoreCPU})/(\text{numpatch} \times \text{dimensionepatch})$
  - Gli input e le variabili temporanee corrispondenti alle piccole patch possono essere poste nella RAM, riducendo così il consumo di tempo delle chiamate lettura-scrittura nell'hard disk. 
 
+### *V-->DISCUSSIONE E CONCLUSIONI*  
+
+
 
 
 
