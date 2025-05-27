@@ -158,60 +158,16 @@ Ecco alcuni dei fattori cruciali che hanno contribuito all'accelerazione dei tem
 
 ### *V-->DISCUSSIONE E CONCLUSIONI*  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
+La normalizzazione del colore è un passo essenziale per rimuovere variazioni di colore indesiderate nelle immagini istopatologiche ed è utile per analizzare le malattie e la loro progressione in dataset di grandi dimensioni provenienti da diversi laboratori. Un possibile pericolo per una tecnica che riguarda i patologi è che le strutture del tessuto presentate nell'immagine originale possono essere alterate dopo la normalizzazione. In questo estratto della ricerca di Vahadane viene proposto uno schema per la normalizzazione per la conservazione delle strutture (SPCN), il quale cambia il colore di un'immagine (sorgente) per avvicinarla il più possibile a un'altra (bersaglio) mantenendo affidabilmente le informazioni strutturali della sorgente intatte. Un passo chiave in questo schema è la separazione accurata delle macchie sia nell'immagine sorgente sia in quella bersaglio basandosi su una fattorizzazione NMF scarsa regolare. Un'ampia convalida qualitativa e quantitativa dimostra una performance superiore della separazione delle macchie SNMF proposta e delle tecniche SPCN. Inoltre, viene proposto uno schema basato su smart patch per accelerare il calcolo sulle WSI. E' doveroso menzionare che la stima proposta dell'aspetto del colore globale basata su campionamento di smart patch è una strategia generale, in quanto può essere combinata facilmente con altre tecniche sulla separazione delle macchie e sulla normalizzazione per accelerare la loro implementazione sulle WSI. Gli algoritmi proposti erano insensibili alla diversa inizializzazione casuale della matrice W quando inizializzati con gli elementi del set di allenamento.  
+Questo lavoro è un miglioramento rispetto al metodo di Macenko, in quanto sono state assunte certe proprietà strutturali delle immagini istopatologiche che sono più plausibili.  
+In primo luogo , viene presa in considerazione la non-negatività, cioè un materiale biologico deve essere assente (zero assorbimento di luce) o presente (assorbimento di luce positivo) ,la densità ottica non può essere negativa.  
+In secondo luogo, la scarsità, cioè un luogo dato (pixel) può essere occupato da uno o dall'altro tipo di materiale biologico, non un mix di entrambi.  
+Basandosi su queste due ipotesi, le macchie o le mappe di densità vengono modellate come scarse e non-negative. In contrario, il metodo Macenko calcola la decomposizione dei singoli valori (SVD) , il quale può portare a una quantità di macchie densa o addirittura irrealisticamente negativa e non garantendo così la conservazione delle strutture biologiche.  
+Come menzionato nella Sezione 1, la perdita di macchie è uno dei maggiori fattori della colocazione delle macchie nelle immagini istologiche. Questo è causato da più di una proteina bersaglio presenti nella stessa area. Ad esempio, nel campione di H&E, l'hematoxylina può fuoriuscire e finire nelle strutture che dovrebbero essere colorate idealmente dall'eosina solamente per qualche legame infinitesimale e non intenzionale e viceversa. Questa è anche una ragione per cui il colore di riferimento della struttura specifica dell'eosina (per esempio stroma) nella colorazione di solo eosina è diverso da quello nella combinazione H&E. La fattorizzazione SNMF utilizza un vincolo di scarsità per decomporre un'immagine in diverse strutture di tessuto rappresentate da macchie effettive, rispetto che alla quantità fisica di hematoxylina e eosina come nella NMF. Il termine "macchia effettiva" è stato introdotto per descrivere l'unicità della combinazione delle macchie nelle diverse strutture biologiche. Questa chiara separazione di macchie effettive può portare a una migliore quantificazione dei tessuti e può aiutare la segmentazione dei nuclei grazie a meno distrazioni provenienti dalle macchie residue nel background. Nella valutazione della normalizzazione presentata , la SNMF e la SPCN hanno riscontrato una maggiore accuratezza rispetto alla NMF e alla CN. Una probabile interpretazione biologica può essere che il livello di perdita di macchie dipende dalla preparazione del tessuto e dalla procedura di colorazione e quindi è specifica per l'immagine, il quale contribuisce anche alla variazione del colore interno all'immagine. La NMF non prende in considerazione questo fattore durante il processo di normalizzazione. In compenso, la normalizzazione basata su SNMF, è basata su una chiara separazione delle strutture, e di conseguenza sorvola questo problema e agisce come una ricolorazione delle strutture della sorgente.  
+Tutti i dati usati in questa ricerca sono immagini istologiche H&E, il quale è dovuto principalmente per due ragioni:  
+ 1) L'H&E è la colorazione istologica usata maggiormente nei laboratori patologici, la popolarità di questa colorazione è data dalla sua semplicità di confronto e dall'abilità di dimostrare un grande numero di diverse strutture di tessuto
+ 2) E' preferito valutare gli algoritmi con dati open-source , la maggior parte dei quali sono H&E, per avere un confronto giusto con altri metodi concorrenti.  
+Nonostante ciò, sono stati fatti dei test preliminari sulla colorazione [immunoistochimica](https://www.airc.it/cancro/informazioni-tumori/ricerca-di-base/immunoistochimica) (IHC) come H&DAB (DAB sta per [Diaminobenzidina](https://www.histoline.com/it/acb999) ) .  La SNMF può raggiungere una buona separazione delle strutture di immagini H&DAB ma comuunque la mappa di densità risultante di H e di DAB non è linearmente correlata con l'attuale quantità di macchie di DAB a causa della rifrazione. Inoltre, la DAB marrone non è un vero assorbitore di luce, ma un dispersore, e ha uno spettro molto ampio e senza caratteristiche. Quindi la legge di assorbimento di Beer-Lambert non è valida per le DAB marroni. Le macchie DAB immunoistochimiche possono legarsi selettivamente alle strutture del cancro bersaglio e quindi occupare solo una piccola regione dell'intera immagine, in questo caso lo schema corrente di campionamento di patch a griglia può perderle. Una possibile soluzione per un'esplorazione efficiente delle WSI per localizzare le regioni del cancro è l'approccio del campionamento dinamico dove le piccole patch sono campionate dinamicamente usando una funzione di punteggio e il [diagramma di Voronoi](https://docs.aspose.com/gis/it/net/geo-tools/voronoi-diagram/) . 
 
 
 
