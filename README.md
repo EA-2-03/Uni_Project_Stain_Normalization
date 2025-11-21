@@ -14,15 +14,15 @@ Esistono diversi metodi per normalizzare le immagini, tra i più utilizzati trov
 - [Il Metodo di Ruifrok e Johnston]
     - [Descrizione del metodo](methods/Il_Metodo_di_Ruifrok_Johnston.md)
     - [Implementazione con Python](impl/Ruifrok_Johnston.py)
-      - - [Immagine prima e dopo la normalizzazione](Immagini/Norm_Ruifrok/Diff_Prima_Dopo_Ruifrok.png)
+      - [Immagine prima e dopo la normalizzazione](Immagini/Norm_Ruifrok/Diff_Prima_Dopo_Ruifrok.png)
 - [Il metodo Reinhard]
     - [Descrizione del metodo](methods/Il_Metodo_Reinhard.md)
     - [Implementazione del codice](impl/Reinhard.py)
-      - - [Immagine prima e dopo la normalizzazione](Immagini/Norm_Reinhard/Diff_Prima_Dopo_Reinhard.png) 
+      - [Immagine prima e dopo la normalizzazione](Immagini/Norm_Reinhard/Diff_Prima_Dopo_Reinhard.png) 
 - [I metodi basati sulle CNN o sulle GAN]  
     - [Descrizione dei metodi](methods/I_metodi_sulle_reti_neurali.md)
     - [Implementazione con Python](impl/Reti_Neurali.py)
-      - - [Immagine prima e dopo la normalizzazione](Immagini/Norm_CNN/Diff_Prima_Dopo_CNN.png)
+      - [Immagine prima e dopo la normalizzazione](Immagini/Norm_CNN/Diff_Prima_Dopo_CNN.png)
 
 
 
