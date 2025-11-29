@@ -7,7 +7,7 @@ from sklearn.decomposition import DictionaryLearning
 #               CARICAMENTO IMMAGINE SORGENTE
 # ============================================================
 
-source_path = "/Users/edoardoarca/Downloads/Immagini_PanNuke/Output_right/image_80.png"
+source_path = "percorso_immagine_sorgente"
 source_bgr = cv2.imread(source_path)            # Legge immagine in BGR (OpenCV)
 source_rgb = cv2.cvtColor(source_bgr, cv2.COLOR_BGR2RGB)  # Conversione a RGB
 source_rgb = cv2.resize(source_rgb, (128, 128))           # Ridimensiona per velocità
@@ -21,7 +21,7 @@ plt.show()
 #               CARICAMENTO IMMAGINE TARGET
 # ============================================================
 
-target_path = "/Users/edoardoarca/Downloads/Immagini_PanNuke/Output_right/image_44.png"
+target_path = "percorso_immagine_target"
 target_bgr = cv2.imread(target_path)
 target_rgb = cv2.cvtColor(target_bgr, cv2.COLOR_BGR2RGB)
 target_rgb = cv2.resize(target_rgb, (128, 128))
