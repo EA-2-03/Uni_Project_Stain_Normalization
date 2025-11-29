@@ -62,8 +62,8 @@ La correlazione tra l'analisi basata su HSI e quella basata sulla deconvoluzione
 
 ## DISCUSSIONE
 
-- **Cosa potrebbe causare la differenza in variabilità tra il metodo basato su HSI e il metodo di deconvoluzione?**
-  *Una spiegazione per l'alto tasso di errore nei controlli positivi può essere la saturazione delle macchie, causando una classificazione errata delle aree scure.
+- **Cosa potrebbe causare la differenza in variabilità tra il metodo basato su HSI e il metodo di deconvoluzione?**  
+*Una spiegazione per l'alto tasso di errore nei controlli positivi può essere la saturazione delle macchie, causando una classificazione errata delle aree scure.
   Il metodo basato su HSI esclude i nuclei molto scuri come blu al posto del marrone; la classificazione delle HSI è molto sensibile alle impostazioni di tonalità per le aree scure, causando un'ampia variabilità nella determinazione del colore.
   Il metodo di deconvoluzione del colore non soffre di questo problema; le aree molto scure contribuiscono sia al segnale marrone che al segnale blu.*
 
