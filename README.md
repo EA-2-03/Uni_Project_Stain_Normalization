@@ -22,7 +22,7 @@ Esistono diversi metodi per normalizzare le immagini, tra i più utilizzati trov
 - [I metodi basati sulle reti neurali]  
     - [Descrizione dei metodi](methods/I_metodi_sulle_reti_neurali.md)
     - [Implementazione con Python](impl/Reti_Neurali.py)
-      - [Immagine prima e dopo la normalizzazione](Immagini/Norm_CNN/Diff_Prima_Dopo_CNN.png)
+      - [Immagine prima e dopo la normalizzazione](Immagini/Norm_Reti_neurali/Diff_Prima_Dopo_RetiNeurali.png)
 
 
 
