@@ -19,7 +19,7 @@ Esistono diversi metodi per normalizzare le immagini, tra i più utilizzati trov
     - [Descrizione del metodo](methods/Il_Metodo_Reinhard.md)
     - [Implementazione del codice](impl/Reinhard.py)
       - [Immagine prima e dopo la normalizzazione](Immagini/Norm_Reinhard/Diff_Prima_Dopo_Reinhard.png) 
-- [I metodi basati sulle CNN o sulle GAN]  
+- [I metodi basati sulle reti neurali]  
     - [Descrizione dei metodi](methods/I_metodi_sulle_reti_neurali.md)
     - [Implementazione con Python](impl/Reti_Neurali.py)
       - [Immagine prima e dopo la normalizzazione](Immagini/Norm_CNN/Diff_Prima_Dopo_CNN.png)
@@ -27,5 +27,5 @@ Esistono diversi metodi per normalizzare le immagini, tra i più utilizzati trov
 
 
 
-Lavori in corso...
+Per vedere le differenze tra i vari metodi, ho messo a confronto i vari output, tutti in un unica [immagine](Immagini/Confronto_metodi) .
 
