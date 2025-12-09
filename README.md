@@ -29,3 +29,7 @@ Esistono diversi metodi per normalizzare le immagini, tra i più utilizzati trov
 
 Per vedere le differenze tra i vari metodi, ho messo a confronto i vari output, tutti in un unica [immagine](Immagini/Confronto_metodi.png) .
 
+Avendo utilizzato le immagini specifiche di questo dataset, il metodo migliore per normalizzarle risulta il metodo Vahadane:
+- preserva in modo migliore i dettagli cellulari;
+- mantiene un rapporto realistico tra il rosa (Eosina) e il viola (Hematoxylina);
+- è un metodo molto robusto per quanto riguarda dataset come PanNuke;
