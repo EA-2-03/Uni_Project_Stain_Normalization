@@ -27,5 +27,5 @@ Esistono diversi metodi per normalizzare le immagini, tra i più utilizzati trov
 
 
 
-Per vedere le differenze tra i vari metodi, ho messo a confronto i vari output, tutti in un unica [immagine](Immagini/Confronto_metodi) .
+Per vedere le differenze tra i vari metodi, ho messo a confronto i vari output, tutti in un unica [immagine](Immagini/Confronto_metodi.png) .
 
