@@ -1,4 +1,4 @@
-# SOLO LA PRIMA VOLTA: clonare il repo e installare le dipendenze
+# SOLO LA PRIMA VOLTA: clonare il repo e installare le dipendenze, questo ci servirà perché così si hanno i pesi già addestrati
 !git clone https://github.com/khtao/StainNet.git
 
 # Entrare nella cartella del repo
