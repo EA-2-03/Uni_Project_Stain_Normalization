@@ -57,7 +57,7 @@ $C_{\text{normalized}} = \frac{C - \mu_C}{\sigma_C} \times \sigma_T + \mu_T$ , c
   - La ricostruzione dell'immagine normalizzata a partire dalle componenti normalizzate. Converte i valori OD nello RGB per ottenere l'immagine normalizzata
   - I valori OD normalizzati sono riconvertiti nello spazio RGB per produrre l'immagine normalizzata finale
   - Le componenti normalizzate vengono combinate nell'immagine RGB per raggiungere la colorazione standardizzata:
-$OD_{normalized} = C_{normalized} \times S$ e $I_{normalized} = I_{o} \times e^{-OD_{normalized}}$ , con *I_{normalized}* l'immagine RGB normalizzata
+$OD_{normalized} = C_{normalized} \times S$ e $I_{normalized} = I_{o} \times e^{-OD_{normalized}}$ , con $I_{normalized}$ l'immagine RGB normalizzata
 
 ## CONCLUSIONE
 
