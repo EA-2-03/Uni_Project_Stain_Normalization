@@ -88,8 +88,8 @@ In questo diagramma si ha una rappresentazione dei risultati per quanto riguarda
 </p>
 
 
-Dunque, complessivamente , il metodo migliore ,secondo questi dati, risulta il metodo di Vahadane, a seguire StainNet, Ruifrok-Johnston, Macenko e Reinhard.
-
+Dunque, complessivamente , il metodo migliore ,secondo questi dati, risulta il metodo di Vahadane(seppur sia anche il più lento), a seguire StainNet, Ruifrok-Johnston, Macenko e Reinhard.
+Se invece , si vogliono buone performance ma in "poco" tempo, il metodo consigliato è quello delle StainNet.
 
 
 
