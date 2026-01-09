@@ -34,8 +34,8 @@ Per vedere le differenze visive tra i vari metodi, ho messo a confronto i vari o
 L'obiettivo principale di questo progetto è sicuramente trovare il metodo migliore, se non i migliori, per normalizzare le immagini. Per fare questo, i vari metodi devono avere qualcosa per essere confrontati. 
 Vahadane , durante il suo lavoro, ci mostra già un confronto fatto tra il suo metodo, il metodo Macenko e il metodo di Reinhard. Ha utilizzato tre metriche principalmente:
 1. rRMSE (Errore Quadratico Medio relativo) --> è un indicatore statistico fondamentale per valutare l'accuratezza di un modello di previsione o di stima; in questo caso la formula della rRMSE è $\text{rRMSE} = \frac{\|| I_{normalizzata} \space -I_{target} \space \||}{\||I_{target}\space \||}_2$ ; minore sarà l'errore, migliore sarà l'accuratezza del metodo .
-2. correlazione di Pearson (con coefficiente $r$ )--> è uno degli indici statistici più utilizzati per misurare la relazioni tra due variabili; il coefficiente oscilla tra -1 e +1, con valori di +1 si ha una correlazione positiva perfetta, con -1 una correlazione negativa perfetta e con 0 assenza di correlazione; più il coefficiente si avvicina a +1 , maggiore sarà la correlazione e  di conseguenza migliore sarà il metodo .
-3. QSSIM (indice di somiglianza strutturale del quaternione) --> il QSSIM è un'estensione matematica del SSIM (indice di somiglianza strutturale) progettata per valutare la qualità delle immagini a colori trattandole come entità vettoriali; trattando ogni pixel come un quaternione , il QSSIM cattura non solo le variazioni di luminanza e contrasto, ma anche le distorsioni nelle relazioni cromatiche (fase e saturazione); come nel caso della correlazione di Pearson si ha un valore che oscilla tra +1 e -1 , che vicino a +1 va a dire un risultato migliore ; viene applicato molto spesso per quanto riguarda l’Intelligenza Artificiale in quanto supporta la valutazione di sistemi AI che generano o elaborano immagini, garantendo che le informazioni visive critiche siano preservate.
+2. correlazione di Pearson (con coefficiente $r$ )--> è uno degli indici statistici più utilizzati per misurare la relazioni tra due variabili; il coefficiente oscilla tra -1 e +1, con valori di +1 si ha una correlazione positiva perfetta, con -1 una correlazione negativa perfetta e con 0 assenza di correlazione; più il coefficiente si avvicina a +1 o a -1, migliore sarà il metodo .
+3. QSSIM (indice di somiglianza strutturale del quaternione) --> il QSSIM è un'estensione matematica del SSIM (indice di somiglianza strutturale) progettata per valutare la qualità delle immagini a colori trattandole come entità vettoriali; trattando ogni pixel come un quaternione , il QSSIM cattura non solo le variazioni di luminanza e contrasto, ma anche le distorsioni nelle relazioni cromatiche (fase e saturazione); come nel caso della correlazione di Pearson si ha un valore che oscilla tra +1 e -1 , con risultati vicini a +1 o -1 si ha un risultato migliore ; viene applicato molto spesso per quanto riguarda l’Intelligenza Artificiale in quanto supporta la valutazione di sistemi AI che generano o elaborano immagini, garantendo che le informazioni visive critiche siano preservate.
 In questo progetto abbiamo ampliato il confronto tramite queste tre metriche a tutti i metodi coinvolti. 
 
 Il dataset PanNuke è stato scelto perché soddisfa alcuni punti chiave per quanto riguarda la scelta di un metodo di normalizzazione efficace . 
@@ -62,5 +62,34 @@ Per i primi 4 metodi, essendo metodi convenzionali, è necessario avere un'immag
 
 Per il metodo con StainNet , invece, bisogna prima caricare i pesi già addestrati e dopo si procede con la normalizzazione .
 
-![image](<img width="1974" height="1176" alt="image" src="https://github.com/user-attachments/assets/f757a71d-09d5-48c2-89c2-ea11bacd2724" />)
+<img src="https://github.com/user-attachments/assets/d0fa690b-d4ff-4c9d-8029-74ef02c0cc3f" width="700" alt="Grafico Confronto Metodi">
+
+In questo diagramma abbiamo una rappresentazione dei risultati per quanto riguarda l'rRMSE dei vari metodi. I blocchi disegnati rappresentano l'incertezza dei valori di media (linea rossa) $±$ la deviazione standard. Come si evince dall'immagine, il metodo migliore risulta Vahadane, subito dopo c'è il metodo con le StainNet,seguito da Ruifrok-Johnston, Macenko e infine Reinhard. Di seguito i risultati in ordine (ricordando sempre che per l'rRMSE minore è il valore migliore è il metodo):
+
+<p align= "center">
+    <img src="https://github.com/user-attachments/assets/afa7fd25-d737-4d87-9cb5-0c9cd1eaeeeb" width="500" alt="Grafico Confronto Metodi">
+</p>
+
+
+<img src="https://github.com/user-attachments/assets/5c110007-d7bf-4fd2-9c66-45856be4f81e" width="700" alt="Grafico Confronto Metodi">
+
+In questo diagramma si ha una rappresentazione dei risultati per quanto riguarda la correlazione di Pearson. Come si evince dall'immagine , anche se per poco , il metodo migliore anche in questo caso risulta Vahadane, subito dopo StainNet, seguito da Ruifrok-Johnston, Macenko e infine Reinhard. Di seguito i risultati , da cui si capirà ancora meglio questa differenza, in ordine dal migliore al peggiore (ricordando sempre che per la corr. di Pearson , più il valore è vicino a +1 o -1 , migliore è il metodo) :
+
+<p align= "center">
+    <img src="https://github.com/user-attachments/assets/4310cf91-2710-4e60-98ce-0d2cb2a68100" width="500" alt="Grafico Confronto Metodi">
+</p>
+
+<img src="https://github.com/user-attachments/assets/97d1a98d-1eda-476b-8df7-5836fa8f7546" width="700" alt="Grafico Confronto Metodi">
+
+In questo diagramma si ha una rappresentazione dei risultati per quanto riguarda il QSSIM. Come si evince dall'immagine, il metodo migliore risulta anche questa volta quello di Vahadane, quello che cambia è la classifica dal secondo posto in poi, ovvero Ruifrok, Reinhard, StainNet e infine Macenko. Di seguito i risultati, in ordine (ricordando sempre che più il valore è vicino a 1, migliore sarà il metodo):
+
+<p align= "center">
+    <img src="https://github.com/user-attachments/assets/09a2a249-9b5d-472c-ad5d-023e4885a17b" width="500" alt="Grafico Confronto Metodi">
+</p>
+
+
+Dunque, complessivamente , il metodo migliore ,secondo questi dati, risulta il metodo di Vahadane, a seguire StainNet, Ruifrok-Johnston, Macenko e Reinhard.
+
+
+
 
