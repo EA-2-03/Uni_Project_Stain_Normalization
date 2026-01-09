@@ -120,7 +120,7 @@ def compute_metrics(norm_rgb, target_rgb):
 # =========================================================
 # 5) TARGET: scegli manualmente (1 o più)
 # =========================================================
-tgt_indices = [XXXX]  # <-- qui si mette il numero dell'immagine target
+tgt_indices = [XXXX]  # <-- qui si mette il numero dell'immagine target (o più)
 
 # =========================================================
 # 6) Esperimento: sorgenti = TUTTO il dataset
